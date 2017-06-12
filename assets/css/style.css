@@ -32,6 +32,13 @@
   font-weight: 300;
 }
 
+.label-form{
+  position:relative;
+   left:-45%;
+  
+
+}
+
 .centraliza-form{
    position:absolute;
    left:50%;
