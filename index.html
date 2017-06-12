@@ -1,0 +1,339 @@
+
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Juros emprestimo</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="Chart.js" type="text/javascript"></script>
+        <script src="Chart_1.js" type="text/javascript"></script>
+        <script src="sheetsee.js" type="text/javascript"></script>
+        <script src="tabletop1.3.4.js" type="text/javascript"></script>
+        <script src= "jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="highlight.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" type="text/javascript"></script>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,400italic|Source+Code+Pro:400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+    </head>
+       <body>
+           
+           
+         
+       
+           <!--Calculadora de Juros-->
+           
+<div id="calculadora" class="container">
+    <h1>Calculadora de Juros</h1>
+           <form name="loandata">
+  <table style="margin:0 auto;">
+    <tr><td colspan="3"><strong></strong></td></tr>
+    <tr>
+      <td>Valor do automovel (R$):</td>
+      <td><input type="text" name="vAutomovel" size="12" 
+                ></td>
+    </tr>
+
+    <tr>
+      <td>Empréstimo (R$):</td>
+      <td><input type="text" name="emprestimo" size="12" 
+                 ></td>
+    </tr>
+
+
+    <tr>
+      <td>Número de parcelas:</td>
+      <td><input type="text" name="parcela" size="12" 
+                ></td>
+    </tr>
+
+
+
+    <tr><td colspan="3">
+      <input type="button" value="Calcular" onclick="calcula();">
+    </td></tr>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td><strong>Parcela mensal (R$):</strong></td>
+      <td><input type="text" name="payment" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest" size="12"></td>
+    </tr>
+
+    
+    <br>
+    <br>
+    <br>
+    <td>Valor dos juros em outras categorias de empréstimo(R$):</td>
+   
+    <td><strong>Crédito Consignado - Público:</strong></td><br/>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td>Parcela mensal (R$):</td>
+      <td><input type="text" name="payment0" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total0" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest0" size="12"></td>
+    </tr>
+   
+    <td><strong>Crédito Consignado - INSS:</strong></td>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td><Parcela mensal (R$):</td>
+      <td><input type="text" name="payment1" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total1" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest1" size="12"></td>
+    </tr>
+
+    <td><strong>Crédito Consignado - Privado:</strong></td>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td>Parcela mensal (R$):</td>
+      <td><input type="text" name="payment2" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total2" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest2" size="12"></td>
+    </tr>
+
+     
+    <td><strong>Crédito Pessoal (CP):</strong></td>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td>Parcela mensal (R$):</td>
+      <td><input type="text" name="payment3" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total3" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest3" size="12"></td>
+    </tr>
+
+     
+    <td><strong>Cartão de Crédito - Parcelado:</strong></td>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td>Parcela mensal (R$):</td>
+      <td><input type="text" name="payment4" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total4" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest4" size="12"></td>
+    </tr>
+
+     
+    <td><strong>Cheque espécial: </strong></td>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td>Parcela mensal (R$):</td>
+      <td><input type="text" name="payment5" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total5" size="12"></td>
+    </tr>
+    <tr>
+      <td> Valor dos juros (R$): </td>
+      <td><input type="text" name="totalinterest5" size="12"></td>
+    </tr>
+
+    
+    <td><strong>Cartão de crédito rotativo:</strong></td>
+    <tr><td colspan="3">
+    </td></tr>
+    <tr>
+      <td>Parcela mensal (R$):</td>
+      <td><input type="text" name="payment6" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor total emprestimo (R$):</td>
+      <td><input type="text" name="total6" size="12"></td>
+    </tr>
+    <tr>
+      <td>Valor dos juros (R$):</td>
+      <td><input type="text" name="totalinterest6" size="12"></td>
+    </tr>
+
+  </table>
+
+
+
+
+
+<script language="JavaScript">
+
+function calcula() {
+    var emprestimo = document.loandata.emprestimo.value;
+    var vAutomovel = document.loandata.vAutomovel.value;
+    var parcela = document.loandata.parcela.value * 1;
+    var juros;
+
+    switch(parcela){
+        case 12:
+            juros = 0.0320;
+            break;
+        case 24:
+            juros = 0.0307;
+            break;
+        case 36:
+            juros = 0.0298;
+            break;
+        case 48:
+            juros = 0.0280;
+            break;
+        default:
+            alert("Selecione o número de parcelas");                
+
+    }
+
+ 
+    var valorJuros = emprestimo * Math.pow(1 + juros, parcela);
+    var totalEmprestimo =  Number(valorJuros) + Number(emprestimo);
+    var monthly = (totalEmprestimo / parcela);
+
+    if (!isNaN(monthly) && 
+        (monthly != Number.POSITIVE_INFINITY) &&
+        (monthly != Number.NEGATIVE_INFINITY)) {
+        document.loandata.payment.value = monthly * 1000 ;
+        document.loandata.total.value = (monthly * parcela) * 1000 ;
+        document.loandata.totalinterest.value = valorJuros * 1000;
+    }
+    else {
+        document.loandata.payment.value = "";
+        document.loandata.total.value = "";
+        document.loandata.totalinterest.value = "";
+    }
+    calculaComparativo();
+}
+
+function calculaComparativo(){
+    var emprestimo = document.loandata.emprestimo.value;
+    var vAutomovel = document.loandata.vAutomovel.value;
+    var parcela = document.loandata.parcela.value * 1;
+    var risco;
+    var juros = new Array (0.0208, 0.0229, 0.0290, 0.0491, 0.0725, 0.1302, 0.1624);
+
+    if(vAutomovel <= 10.000){
+        risco =  emprestimo * 0.1; //alto
+    }
+    else if(vAutomovel > 10.000 && vAutomovel < 40.000){
+        risco = emprestimo * 0.075; //medio
+    }
+    else{
+        risco =  emprestimo * 0.045; //baixo risco.
+    }
+    var i;
+    var valorJuros;
+    var totalEmprestimo;
+    var monthly;
+    for(i = 0; i < 7; i++){ 
+        valorJuros = (Number(emprestimo) + Number(risco)) * (Math.pow(1 + juros[i], parcela));
+        //alert(valorJuros);
+        totalEmprestimo =  Number(valorJuros) + Number(emprestimo);
+        monthly = (totalEmprestimo / parcela);
+
+        if (!isNaN(monthly) && 
+            (monthly != Number.POSITIVE_INFINITY) &&
+            (monthly != Number.NEGATIVE_INFINITY)) {
+            switch(i){ //a cada iteração preenche um  dos tipos de credito comparativo (são 6 no total)
+                case 0:
+                    document.loandata.payment0.value = monthly * 1000 ;
+                    document.loandata.total0.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest0.value = valorJuros * 1000;
+                    break;
+                case 1:
+                    document.loandata.payment1.value = monthly * 1000 ;
+                    document.loandata.total1.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest1.value = valorJuros * 1000;
+                    break;
+                case 2:
+                    document.loandata.payment2.value = monthly * 1000 ;
+                    document.loandata.total2.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest2.value = valorJuros * 1000;
+                    break;
+                case 3:
+                    document.loandata.payment3.value = monthly * 1000 ;
+                    document.loandata.total3.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest3.value = valorJuros * 1000;
+                    break;
+                case 4:
+                    document.loandata.payment4.value = monthly * 1000 ;
+                    document.loandata.total4.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest4.value = valorJuros * 1000;
+                    break;
+                case 5:
+                    document.loandata.payment5.value = monthly * 1000 ;
+                    document.loandata.total5.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest5.value = valorJuros * 1000;
+                    break;
+                case 6:
+                    document.loandata.payment6.value = monthly * 1000 ;
+                    document.loandata.total6.value = (monthly * parcela) * 1000 ;
+                    document.loandata.totalinterest6.value = valorJuros * 1000;
+                    break;                        
+        }
+        }
+
+        else {
+            //document.loandata.payment.value = "";
+            //document.loandata.total.value = "";
+            //document.loandata.totalinterest.value = "";
+    }
+}
+}
+
+
+</script>
+            </div>
+           
+           
+           
+         
+           
+    </body>
+</html>
