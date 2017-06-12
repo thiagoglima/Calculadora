@@ -36,3 +36,8 @@
    margin-left:-120px;
    margin-top: -45px;
 }
+
+.panel-heading span {
+  font-size: 18px;
+  color: black;
+}
