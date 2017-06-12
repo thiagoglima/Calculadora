@@ -19,3 +19,20 @@
   font-size: 1.5em;
   font-weight: 400;
 }
+
+.video-section{
+  font-size: 2.5em;
+  font-weight: 400;
+}
+
+#txt-centralizado{
+  text-align: center;
+}
+
+.centraliza-form{
+   position:absolute;
+   left:50%;
+   top:50%;
+   margin-left:-120px;
+   margin-top:-45px;
+}
