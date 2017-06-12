@@ -105,6 +105,10 @@
                                   </div>
                                 </div>
                                 <div class="col-md-12">
+                                  <span id="label-valor-obj" class="form-label">Qual o valor estimado dessa casa?</span>
+                                  <input type="text" class="form-control" id="field-valor-objeto" placeholder="Ex: 100000.00">
+                                </div>
+                                <div class="col-md-12">
                                   <span class="form-label">Quantas parcelas você prefere?</span>
                                   <div id="btn-group-casa" class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-primary active">
@@ -137,9 +141,8 @@
                                   <input type="text" class="form-control" id="field-valor-emprestimo" placeholder="Ex: 30000.00">
                                 </div>
                                 <div class="col-md-12">
-                                  <button id="btn-calc" class="btn btn-primary">Calcular!</button>
+                                  <button id="btn-calc" class="btn btn-primary" data-toggle="modal" data-target="#modal-calc">Calcular!</button>
                                 </div>
-
                               </div>
                             </div>
                           </div>
@@ -235,6 +238,33 @@
         </div>
         </div>
       </section>
+      <!-- Modal Core -->
+      <section class="col-md-12">
+        <div class="modal fade" id="modal-calc" tabindex="-1" role="dialog" aria-labelledby="CalculosModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-calc-title">Nosso calculos</h4>
+              </div>
+              <div class="modal-body">
+                <h3>Temos algumas opções para você!</h3>
+                <p class="calc-result"></p>
+                <p class="calc-result"></p>
+                <p class="calc-result"></p>
+                <p class="calc-result"></p>
+                <p class="calc-result"></p>
+                <p class="calc-result"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer class="footer" data-background-color="black">
         <div class="container">
           <nav>
