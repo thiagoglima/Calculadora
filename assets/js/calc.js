@@ -1,11 +1,10 @@
-$(document).ready(function(){
-  $('#opt-casa').click(function(){
-    alert("funciona");
-    $('#btn-group-carro').toggle();
-    $('#btn-group-casa').toggle();
-  });
-  $('#opt-carro').click(function(){
-    $('#btn-group-casa').toggle();
-    $('#btn-group-carro').toggle();
-  });
-}
+var btnCasa = $('#btn-group-casa');
+var btnCarro = $('#btn-group-carro');
+$('#btn-casa').click(function(){
+  btnCasa.toggle();
+  btnCarro.toggle();
+});
+$('#btn-carro').click(function(){
+  btnCasa.toggle();
+  btnCarro.toggle();
+});

@@ -96,17 +96,28 @@
                                 <div class="col-md-12">
                                   <span class="form-label">Escolha qual bem você quer usar como crédito?</span>
                                   <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary active">
-                                      <input type="radio" name="opt-objeto" id="opt-casa" autocomplete="off" checked> Casa
+                                    <label id="btn-casa" class="btn btn-primary active">
+                                      <input type="radio" name="opt-objeto" id="opt-casa" autocomplete="off" onclick="btnCasa()" checked> Casa
                                     </label>
-                                    <label class="btn btn-primary">
-                                      <input type="radio" name="opt-objeto" id="opt-carro" autocomplete="off"> Carro
+                                    <label id="btn-carro" class="btn btn-primary">
+                                      <input type="radio" name="opt-objeto" id="opt-carro" autocomplete="off" onclick="btnCarro()"> Carro
                                     </label>
                                   </div>
                                 </div>
                                 <div class="col-md-12">
                                   <span class="form-label">Quantas parcelas você prefere?</span>
-                                  <div id="btn-group-carro" class="btn-group" data-toggle="buttons">
+                                  <div id="btn-group-casa" class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active">
+                                      <input type="radio" name="opt-parcelas" id="opt-parcelas-1" autocomplete="off" checked>120
+                                    </label>
+                                    <label class="btn btn-primary">
+                                      <input type="radio" name="opt-parcelas" id="opt-parcelas-2" autocomplete="off">180
+                                    </label>
+                                    <label class="btn btn-primary">
+                                      <input type="radio" name="opt-parcelas" id="opt-parcelas-3" autocomplete="off">240
+                                    </label>
+                                  </div>
+                                  <div id="btn-group-carro" class="btn-group" style="display: none;" data-toggle="buttons">
                                     <label class="btn btn-primary active">
                                       <input type="radio" name="opt-parcelas" id="opt-parcelas-1" autocomplete="off" checked>12
                                     </label>
@@ -118,17 +129,6 @@
                                     </label>
                                     <label class="btn btn-primary">
                                       <input type="radio" name="opt-parcelas" id="opt-parcelas-4" autocomplete="off">48
-                                    </label>
-                                  </div>
-                                  <div id="btn-group-casa" class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary active">
-                                      <input type="radio" name="opt-parcelas" id="opt-parcelas-1" autocomplete="off" checked>120
-                                    </label>
-                                    <label class="btn btn-primary">
-                                      <input type="radio" name="opt-parcelas" id="opt-parcelas-2" autocomplete="off">180
-                                    </label>
-                                    <label class="btn btn-primary">
-                                      <input type="radio" name="opt-parcelas" id="opt-parcelas-3" autocomplete="off">240
                                     </label>
                                   </div>
                                 </div>
@@ -163,7 +163,7 @@
           <br>
        </div>
       </section>
-      
+
       <section class="wrapper">
       <div class="page-header clear-filter" filter-color="green">
         <div id="header" class="page-header-image" style="background-image: url('./assets/img/bg-form.jpg');">
