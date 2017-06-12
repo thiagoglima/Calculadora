@@ -1,0 +1,22 @@
+#header {
+  background-position: initial;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+#txt-hero {
+  display: inline-block;
+  margin: 20% auto;
+}
+
+#txt-hero h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+#txt-hero p {
+  font-size: 1.5em;
+  font-weight: 400;
+}
