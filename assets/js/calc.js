@@ -24,8 +24,8 @@ function set_modal_values(calcValues){
 var calcValues = {};
 
 $(document).ready(function(){
-  $("#field-valor-objeto").maskMoney();
-  $("#field-valor-emprestimo").maskMoney();
+  //$("#field-valor-objeto").maskMoney();
+  //$("#field-valor-emprestimo").maskMoney();
 
   var btnCasa = $('#btn-group-casa');
   var btnCarro = $('#btn-group-carro');
@@ -44,15 +44,23 @@ $(document).ready(function(){
 
   $('#btn-calc').click(function(){
     calcValues = get_values();
-    set_modal_values(calcValues)
-    calcula(calcValues)
+    set_modal_values(calcValues);
+    calcula(calcValues);
   });
 });
 
 function calcula(calcValues){
-    var emprestimo = document.loandata.emprestimo.value;
-    var vAutomovel = document.loandata.vAutomovel.value;
-    var parcela = document.loandata.parcela.value * 1;
+    //var emprestimo = calcValues['value'].replace(".", "");
+   // emprestimo = emprestimo.Remove(nome.Length - 2);
+   // emprestimo = emprestimo;
+    //emprestimo = emprestimo.substr(1,(string.length - 1));
+   // var vAutomovel = calcValues['object_value'].replace(".", "");
+   // vAutomovel = vAutomovel.replace(".","");
+    
+
+    var emprestimo = Number(calcValues['value']);
+    var parcela =  Number(calcValues['parcel']);
+    var vAutomovel = Number(calcValues['object_value']);
     var juros;
 
     switch(parcela){
@@ -68,34 +76,44 @@ function calcula(calcValues){
         case 48:
             juros = 0.0280;
             break;
+        case 120:
+            juros = 0.0491;
+            break;
+        case 180:
+            juros = 0.0491;
+            break;
+        case 240: 
+            juros = 0.0491;
+            break;   
         default:
             alert("Selecione o número de parcelas");
     }
 
 
     var valorJuros = emprestimo * Math.pow(1 + juros, parcela);
-    var totalEmprestimo =  Number(valorJuros) + Number(emprestimo);
+    var totalEmprestimo =  valorJuros + emprestimo;
     var monthly = (totalEmprestimo / parcela);
 
     if (!isNaN(monthly) &&
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
-        document.loandata.payment.value = monthly * 1000 ;
-        document.loandata.total.value = (monthly * parcela) * 1000 ;
-        document.loandata.totalinterest.value = valorJuros * 1000;
+        alert( monthly);
+        alert((monthly * parcela));
+        alert(valorJuros);
     }
     else {
+       // alert("deu ruim")
         document.loandata.payment.value = "";
         document.loandata.total.value = "";
         document.loandata.totalinterest.value = "";
     }
-    calculaComparativo();
+    calculaComparativo(calcValues);
 }
 
-function calculaComparativo(){
-    var emprestimo = document.loandata.emprestimo.value;
-    var vAutomovel = document.loandata.vAutomovel.value;
-    var parcela = document.loandata.parcela.value * 1;
+function calculaComparativo(calcValues){
+    var emprestimo = Number(calcValues['value']);
+    var parcela =  Number(calcValues['parcel']);
+    var vAutomovel = Number(calcValues['object_value']);
     var risco;
     var juros = new Array (0.0208, 0.0229, 0.0290, 0.0491, 0.0725, 0.1302, 0.1624);
 
@@ -122,40 +140,31 @@ function calculaComparativo(){
             (monthly != Number.POSITIVE_INFINITY) &&
             (monthly != Number.NEGATIVE_INFINITY)) {
             switch(i){ //a cada iteração preenche um  dos tipos de credito comparativo (são 6 no total)
-                case 0:
-                    document.loandata.payment0.value = monthly * 1000 ;
-                    document.loandata.total0.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest0.value = valorJuros * 1000;
+                case 0: //preenche valor parcela para Crédito consignado - público
+                    alert( monthly);
+                    alert((monthly * parcela));
+                    alert(valorJuros);
                     break;
                 case 1:
-                    document.loandata.payment1.value = monthly * 1000 ;
-                    document.loandata.total1.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest1.value = valorJuros * 1000;
+                    //preenche valor parcela para crédito consignado - inss
+                    alert( monthly);
+                    alert((monthly * parcela));
+                    alert(valorJuros);
                     break;
                 case 2:
-                    document.loandata.payment2.value = monthly * 1000 ;
-                    document.loandata.total2.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest2.value = valorJuros * 1000;
+                    //preenche valor parcela para crédito consignado - privado
                     break;
                 case 3:
-                    document.loandata.payment3.value = monthly * 1000 ;
-                    document.loandata.total3.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest3.value = valorJuros * 1000;
+                    //preenche valor parcela para crédito pessoal
                     break;
                 case 4:
-                    document.loandata.payment4.value = monthly * 1000 ;
-                    document.loandata.total4.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest4.value = valorJuros * 1000;
+                    //preenche valor parcela para cartão de crédito - parcelado
                     break;
                 case 5:
-                    document.loandata.payment5.value = monthly * 1000 ;
-                    document.loandata.total5.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest5.value = valorJuros * 1000;
+                    //preenche valor parcela para cheque especial
                     break;
                 case 6:
-                    document.loandata.payment6.value = monthly * 1000 ;
-                    document.loandata.total6.value = (monthly * parcela) * 1000 ;
-                    document.loandata.totalinterest6.value = valorJuros * 1000;
+                    //preenche valor parcela para cartão de crédito rotativo
                     break;
         }
         }
