@@ -78,3 +78,9 @@
 html {
   overflow-y: scroll !important;
 }
+
+#graf-img img{
+  position: relative;
+  top: 150px;
+  left: 50px;
+}

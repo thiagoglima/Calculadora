@@ -30,9 +30,9 @@
                     <span class="navbar-toggler-bar bar2"></span>
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" rel="tooltip" title="Coded by Group5 Dev Team @ GamaXP6" data-placement="bottom" target="_blank">
-                    <img src="logo-creditas-white-3cd22a2808.svg" alt="Creditas Consulta" style="width:150px;height:50px;"> 
-					<h6>Calcula</h6>
+                <a class="navbar-brand" href="index.html" rel="tooltip" title="Coded by Group5 Dev Team @ GamaXP6" data-placement="bottom">
+                  <img src="./assets/img/logo-creditas.png" alt="Creditas Consulta" style="width:300px;">
+					        <h6>Calcula</h6>
                 </a>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
@@ -94,7 +94,7 @@
                             <div class="panel with-nav-tabs panel-primary">
                               <div class="panel-heading">
                                 <div class="col-md-12">
-                                  <span class="form-label">Escolha qual bem você quer usar como crédito?</span>
+                                  <span class="form-label">Escolha qual bem você quer usar como seguro</span>
                                   <div id="btn-group-guarantee" class="btn-group" data-toggle="buttons">
                                     <label id="btn-casa" class="btn btn-primary active">
                                       <input type="radio" name="opt-objeto" id="opt-casa" autocomplete="off" onclick="btnCasa()" value="Casa" checked>Casa
@@ -109,7 +109,7 @@
                                   <input type="text" class="form-control" id="field-valor-objeto" name="vAutomovel" placeholder="Ex: 100000.00" data-thousands=".">
                                 </div>
                                 <div class="col-md-12">
-                                  <span class="form-label">Quantas parcelas você prefere?</span>
+                                  <span class="form-label">Em quantas parcelas você prefere pagar?</span>
                                   <div id="btn-group-casa" class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-primary active">
                                       <input type="radio" name="opt-parcelas" id="opt-parcelas-1" autocomplete="off" value="120" checked>120
@@ -172,72 +172,63 @@
         <div id="header" class="page-header-image" style="background-image: url('./assets/img/bg-form.jpg');">
         </div>
         <div class="container">
-        <div class="row">
-          <form class="col-md-12 form-horizontal"> <br>
-           <fieldset>
-             <legend>Cadastre-se para novidades</legend>
-              <div class="form-group"> <br>
-                <label class="col-md-6 label-form" for="idNome">Nome</label>
-                <div class="col-md-6">
+          <div class="row">
+            <form class="col-md-6 form-horizontal"> <br>
+              <fieldset>
+               <div class="form-group"> <br>
+               <legend>Cadastre-se para novidades</legend>
+                  <label class="label-form" for="idNome">Nome</label>
                   <input id="idNome" name="idNome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="">
                 </div>
-              </div>
-              <div class="form-group"> <br>
-                <label class="col-md-6 label-form" for="idEmail">E-mail</label>
-                <div class="col-md-6">
+                <div class="form-group"> <br>
+                  <label class="label-form" for="idEmail">E-mail</label>
                   <input id="idEmail" name="idEmail" type="text" placeholder="E-mail" class="form-control input-md" required="">
                 </div>
-              </div>
-              <div class="form-group"> <br>
-                <label class="col-md-6 label-form" for="datanascimento">Nascimento</label>
-                <div class="col-md-6">
-                  <input id="datanascimento" name="datanascimento" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
+                <div class="form-group"> <br>
+                  <label class="label-form" for="datanascimento">Nascimento</label>
+                    <input id="datanascimento" name="datanascimento" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
                 </div>
-              </div>
-              <div class="form-group"> <br>
-                <label class="col-md-6 label-form" for="sexo">Sexo</label>
-                <div class="col-md-6">
-                <select id="sexo" name="sexo" class="form-control">
-                  <option value="F">Feminino</option>
-                  <option value="M">Masculino</option>
-                  <option value="M">Outro</option>
-                </select>
-                </div>
-              </div>
-              <div class="form-group"> <br>
-                <label class="col-md-6 label-form" for="celular">Celular</label>
-                <div class="col-md-6">
+                <div class="form-group"> <br>
+                  <label class="label-form" for="sexo">Sexo</label>
+                  <select id="sexo" name="sexo" class="form-control">
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="M">Outro</option>
+                  </select>
+                  </div>
+                <div class="form-group"> <br>
+                  <label class="label-form" for="celular">Celular</label>
                   <input id="celular" name="celular" type="text" placeholder="(99)999999999" class="form-control input-md">
                 </div>
-              </div>
-              <div class="form-group"> <br>
-                <label class="col-md-6 label-form" for="idInteresse">Interesse</label>
-                <div class="col-md-6">
-                  <select id="idInteresse" name="idInteresse" class="form-control">
-                    <option value="1">Pagar empréstimo</option>
-                    <option value="2">Pagar dívida</option>
-                    <option value="2">Aquisição de automóvel</option>
-                    <option value="2">Aquisição de imóvel</option>
-                    <option value="2">Educação</option>
-                    <option value="2">Novo empreendimento</option>
-                    <option value="2">Investir em empreendimento existente</option>
-                    <option value="2">Tirar férias</option>
-                    <option value="2">Tratamento médico</option>
-                  </select>
+                <div class="form-group"> <br>
+                  <label class="label-form" for="idInteresse">Interesse</label>
+                    <select id="idInteresse" name="idInteresse" class="form-control">
+                      <option value="1">Pagar empréstimo</option>
+                      <option value="2">Pagar dívida</option>
+                      <option value="2">Aquisição de automóvel</option>
+                      <option value="2">Aquisição de imóvel</option>
+                      <option value="2">Educação</option>
+                      <option value="2">Novo empreendimento</option>
+                      <option value="2">Investir em empreendimento existente</option>
+                      <option value="2">Tirar férias</option>
+                      <option value="2">Tratamento médico</option>
+                    </select>
                 </div>
-              </div>
-              <div class="form-group"> <br>
-                <label class="col-md-6 control-label" for="idRegistro"></label>
-                <div class="col-md-6">
+                <div class="form-group"> <br>
+                  <label class="control-label" for="idRegistro"></label>
                   <button id="idRegistro" name="idRegistro" class="btn btn-primary">Registrar</button>
                 </div>
+              </fieldset>
+            </form>
+            <div class="col-md-6">
+              <div id="graf-img">
+                <img src="./assets/img/graficos.png">
               </div>
-            </fieldset>
-          </form>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-      </section>
+      </div>
+    </section>
       <!-- Modal Core -->
       <section class="col-md-12">
         <div class="modal fade" id="modal-calc" tabindex="-1" role="dialog" aria-labelledby="CalculosModal" aria-hidden="true">
@@ -250,11 +241,14 @@
               <div class="modal-body">
                 <h3>Temos algumas opções para você!</h3>
                 <p id="res-teste" class="calc-result"></p>
-                <p class="calc-result"></p>
-                <p class="calc-result"></p>
-                <p class="calc-result"></p>
-                <p class="calc-result"></p>
-                <p class="calc-result"></p>
+                <p id="parcel-creditas" class="calc-result"></p>
+                <p id="parcel-consig-pub" class="calc-result"></p>
+                <p id="parcel-consig-inss" class="calc-result"></p>
+                <p id="parcel-consig-priv" class="calc-result"></p>
+                <p id="parcel-cp" class="calc-result"></p>
+                <p id="parcel-credit-card-parc" class="calc-result"></p>
+                <p id="parcel-cheque" class="calc-result"></p>
+                <p id="parcel-credit-card-rot" class="calc-result"></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
