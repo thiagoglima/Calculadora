@@ -154,8 +154,12 @@ function calculaComparativo(){
 }
 }
 
- $(function(){
+$(function(){
         $("#field-valor-objeto").maskMoney();
         $("#field-valor-emprestimo").maskMoney();
     })
+
+
+
+
 
