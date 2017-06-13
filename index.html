@@ -104,8 +104,8 @@
                                   </div>
                                 </div>
                                 <div class="col-md-12">
-                                  <span id="label-valor-obj" class="form-label">Qual o valor estimado dessa casa?</span>
-                                  <input type="text" class="form-control" id="field-valor-objeto" placeholder="Ex: 100000.00">
+                                  <span id="label-valor-obj" class="form-label">Qual o valor estimado do imóvel?</span>
+                                  <input type="text" class="form-control" id="field-valor-objeto" name="vAutomovel" placeholder="Ex: 100000.00" data-prefix="R$ " data-thousands="." data-decimal=",">
                                 </div>
                                 <div class="col-md-12">
                                   <span class="form-label">Quantas parcelas você prefere?</span>
@@ -120,7 +120,7 @@
                                       <input type="radio" name="opt-parcelas" id="opt-parcelas-3" autocomplete="off" value="240">240
                                     </label>
                                   </div>
-                                  <div id="btn-group-carro" class="btn-group" style="display: none;" data-toggle="buttons">
+                                  <div id="btn-group-carro"  class="btn-group" style="display: none;" data-toggle="buttons">
                                     <label class="btn btn-primary active">
                                       <input type="radio" name="opt-parcelas" id="opt-parcelas-1" autocomplete="off" value="12" checked>12
                                     </label>
@@ -136,8 +136,8 @@
                                   </div>
                                 </div>
                                 <div class="col-md-12">
-                                  <span class="form-label">De quanto $ você precisa?</span>
-                                  <input type="text" class="form-control" id="field-valor-emprestimo" placeholder="Ex: 30000.00">
+                                  <span class="form-label">De quanto você precisa?</span>
+                                  <input type="text" class="form-control" id="field-valor-emprestimo" name="emprestimo" placeholder="Ex: 30000.00" data-prefix="R$ " data-thousands="." data-decimal=",">
                                 </div>
                                 <div class="col-md-12">
                                   <button id="btn-calc" class="btn btn-primary" data-toggle="modal" data-target="#modal-calc">Calcular!</button>
@@ -297,6 +297,9 @@
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/now-ui-kit.js" type="text/javascript"></script>
 <script src="./assets/js/calc.js" type="text/javascript"></script>
+<script src="./assets/js/jquery.maskMoney.min.js" type="text/javascript"></script>
+
+
 <script type="text/javascript">
     $(document).ready(function() {
         // the body of this function is in assets/js/now-ui-kit.js
