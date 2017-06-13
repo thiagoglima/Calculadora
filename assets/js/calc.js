@@ -4,7 +4,6 @@ function calcula(){
     var parcela = document.loandata.parcela.value * 1;
     var juros;
 
-<<<<<<< HEAD
     switch(parcela){
         case 12:
             juros = 0.0320;
@@ -22,7 +21,6 @@ function calcula(){
             alert("Selecione o número de parcelas");
 
     }
-
 
     var valorJuros = emprestimo * Math.pow(1 + juros, parcela);
     var totalEmprestimo =  Number(valorJuros) + Number(emprestimo);
@@ -140,6 +138,9 @@ function get_values(){
 
 
 $(document).ready(function(){
+  $("#field-valor-objeto").maskMoney();
+  $("#field-valor-emprestimo").maskMoney();
+  
   var btnCasa = $('#btn-group-casa');
   var btnCarro = $('#btn-group-carro');
   var labelValor = $('#label-valor-obj');
@@ -276,8 +277,3 @@ function calculaComparativo(){
     }
 }
 }
-
-$(function(){
-        $("#field-valor-objeto").maskMoney();
-        $("#field-valor-emprestimo").maskMoney();
-    })
