@@ -86,13 +86,13 @@ function calculaComparativo(){
     var juros = new Array (0.0208, 0.0229, 0.0290, 0.0491, 0.0725, 0.1302, 0.1624);
 
     if(vAutomovel <= 10.000){
-        risco =  emprestimo * 0.1; //alto
+        risco = emprestimo * 0.1; //alto
     }
     else if(vAutomovel > 10.000 && vAutomovel < 40.000){
         risco = emprestimo * 0.075; //medio
     }
     else{
-        risco =  emprestimo * 0.045; //baixo risco.
+        risco = emprestimo * 0.045; //baixo risco.
     }
     var i;
     var valorJuros;
