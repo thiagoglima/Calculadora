@@ -5,6 +5,16 @@
   background-attachment: fixed;
 }
 
+#txt-hero {
+  top: 30px;
+  background: #1EB98A;
+  border-radius: 25px;
+  position: relative;
+  opacity: 0.7;
+  padding: 20px;
+  display: inline-block;
+  margin: 20% auto;
+}
 
 #txt-hero h2 {
   font-size: 2em;
