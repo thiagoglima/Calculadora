@@ -5,12 +5,6 @@ function get_values() {
   var valorObj = $('');
   var valorEmprestimo = $('');
 
-  var parcela;
-
-  for (var i = 0; i < els.length; i++){
-      if ( els[i].checked ) {
-        parcela = els[i].value;
-  }
 }
 
 
