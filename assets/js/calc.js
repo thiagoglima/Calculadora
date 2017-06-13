@@ -24,8 +24,8 @@ function set_modal_values(calcValues){
 var calcValues = {};
 
 $(document).ready(function(){
-  //$("#field-valor-objeto").maskMoney();
-  //$("#field-valor-emprestimo").maskMoney();
+  $("#field-valor-objeto").maskMoney();
+  $("#field-valor-emprestimo").maskMoney();
 
   var btnCasa = $('#btn-group-casa');
   var btnCarro = $('#btn-group-carro');
@@ -50,7 +50,8 @@ $(document).ready(function(){
 });
 
 function calcula(calcValues){
-    //var emprestimo = calcValues['value'].replace(".", "");
+   var emprestimo = calcValues['value'].replace(".", "");
+  // emprestimo = emprestimo.replace(",", "");
    // emprestimo = emprestimo.Remove(nome.Length - 2);
    // emprestimo = emprestimo;
     //emprestimo = emprestimo.substr(1,(string.length - 1));
@@ -58,10 +59,15 @@ function calcula(calcValues){
    // vAutomovel = vAutomovel.replace(".","");
     
 
-    var emprestimo = Number(calcValues['value']);
+   // var emprestimo = Number(calcValues['value']);
+    
+    emprestimo = Number(emprestimo);
     var parcela =  Number(calcValues['parcel']);
     var vAutomovel = Number(calcValues['object_value']);
     var juros;
+
+    alert(typeof emprestimo);
+    alert(emprestimo);
 
     switch(parcela){
         case 12:
@@ -97,12 +103,12 @@ function calcula(calcValues){
     if (!isNaN(monthly) &&
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
-        alert( monthly);
+        alert(monthly);
         alert((monthly * parcela));
         alert(valorJuros);
     }
     else {
-       // alert("deu ruim")
+        alert("deu ruim")
         document.loandata.payment.value = "";
         document.loandata.total.value = "";
         document.loandata.totalinterest.value = "";
