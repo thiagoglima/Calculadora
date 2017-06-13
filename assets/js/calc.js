@@ -1,3 +1,15 @@
+var calcValues = {};
+var todasParcelas = {
+    creditas: 0,
+    consig_pub: 0,
+    consig_priv: 0,
+    consig_inss: 0,
+    cp: 0,
+    credit_card_parc: 0,
+    cheque: 0,
+    credit_card_rot: 0,
+};
+
 function get_values(){
   var formGroup = $('.panel-heading');
   var guarantee = formGroup.find("#btn-group-guarantee .active input").val();
@@ -16,13 +28,18 @@ function get_values(){
     value: value
   };
   return calcDetails;
-}
+};
 
-function set_modal_values(calcValues){
-  $('#res-teste').text(JSON.stringify(calcValues));
-}
-var calcValues = {};
-
+function set_modal_values(values){
+  $('#parcel-creditas').text(values['creditas']);
+  $('#parcel-consig-pub').text(values['consig_pub']);
+  $('#parcel-consig-inss').text(values['consig_inss']);
+  $('#parcel-consig-priv').text(values['consig_priv']);
+  $('#parcel-cp').text(values['cp']);
+  $('#parcel-credit-card').text(values['credit_card_parc']);
+  $('#parcel-cheque').text(values['cheque']);
+  $('#parcel-credit-card-rot').text(values['credit_card_rot']);
+};
 $(document).ready(function(){
   $("#field-valor-objeto").maskMoney();
   $("#field-valor-emprestimo").maskMoney();
@@ -44,8 +61,9 @@ $(document).ready(function(){
 
   $('#btn-calc').click(function(){
     calcValues = get_values();
-    set_modal_values(calcValues);
     calcula(calcValues);
+    calculaComparativo(calcValues);
+    set_modal_values(todasParcelas);
   });
 });
 
@@ -58,18 +76,13 @@ function calcula(calcValues){
     //emprestimo = emprestimo.substr(1,(string.length - 1));
    // var vAutomovel = calcValues['object_value'].replace(".", "");
    // vAutomovel = vAutomovel.replace(".","");
-    
+
 
    // var emprestimo = Number(calcValues['value']);
-    
     emprestimo = Number(emprestimo);
     var parcela =  Number(calcValues['parcel']);
     var vAutomovel = Number(vAutomovel);
     var juros;
-
-    alert(typeof vAutomovel);
-    alert(vAutomovel);
-    alert(emprestimo);
 
     switch(parcela){
         case 12:
@@ -90,9 +103,9 @@ function calcula(calcValues){
         case 180:
             juros = 0.0491;
             break;
-        case 240: 
+        case 240:
             juros = 0.0491;
-            break;   
+            break;
         default:
             alert("Selecione o número de parcelas");
     }
@@ -105,23 +118,20 @@ function calcula(calcValues){
     if (!isNaN(monthly) &&
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
-        alert(monthly);
-        alert((monthly * parcela));
-        alert(valorJuros);
+        todasParcelas['creditas'] = parseFloat(monthly).toFixed(2);
     }
     else {
-        alert("deu ruim")
+        alert("deu ruim");
         document.loandata.payment.value = "";
         document.loandata.total.value = "";
         document.loandata.totalinterest.value = "";
     }
-    calculaComparativo(calcValues);
 }
 
 function calculaComparativo(calcValues){
-    var emprestimo = Number(calcValues['value']);
-    var parcela =  Number(calcValues['parcel']);
-    var vAutomovel = Number(calcValues['object_value']);
+    var emprestimo = Number(calcValues['value'].replace(".", ""));
+    var vAutomovel = calcValues['object_value'].replace(".", "");
+    var parcela =  Number(calcValues['parcel']);    var vAutomovel = Number(vAutomovel);
     var risco;
     var juros = new Array (0.0208, 0.0229, 0.0290, 0.0491, 0.0725, 0.1302, 0.1624);
 
@@ -149,32 +159,27 @@ function calculaComparativo(calcValues){
             (monthly != Number.NEGATIVE_INFINITY)) {
             switch(i){ //a cada iteração preenche um  dos tipos de credito comparativo (são 6 no total)
                 case 0: //preenche valor parcela para Crédito consignado - público
-                    alert( monthly);
-                    alert((monthly * parcela));
-                    alert(valorJuros);
+                    todasParcelas['consig_pub'] = parseFloat(monthly).toFixed(2);
                     break;
                 case 1:
-                    //preenche valor parcela para crédito consignado - inss
-                    alert( monthly);
-                    alert((monthly * parcela));
-                    alert(valorJuros);
+                    todasParcelas['consig_inss'] = parseFloat(monthly).toFixed(2);
                     break;
                 case 2:
-                    //preenche valor parcela para crédito consignado - privado
+                    todasParcelas['consig_priv'] = parseFloat(monthly).toFixed(2);
                     break;
                 case 3:
-                    //preenche valor parcela para crédito pessoal
+                    todasParcelas['cp'] = parseFloat(monthly).toFixed(2);
                     break;
                 case 4:
-                    //preenche valor parcela para cartão de crédito - parcelado
+                    todasParcelas['credit_card_parc'] = parseFloat(monthly).toFixed(2);
                     break;
                 case 5:
-                    //preenche valor parcela para cheque especial
+                    todasParcelas['cheque'] = parseFloat(monthly).toFixed(2);
                     break;
                 case 6:
-                    //preenche valor parcela para cartão de crédito rotativo
+                    todasParcelas['credit_card_rot'] = parseFloat(monthly).toFixed(2);
                     break;
-        }
+              }
         }
 
         else {
@@ -182,5 +187,5 @@ function calculaComparativo(calcValues){
             //document.loandata.total.value = "";
             //document.loandata.totalinterest.value = "";
     }
-}
-}
+  }
+};
