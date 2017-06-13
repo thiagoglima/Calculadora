@@ -19,8 +19,9 @@ function get_values(){
 }
 
 function set_modal_values(calcValues){
-  alert(calcValues);
+  $('#res-teste').text(JSON.stringify(calcValues));
 }
+var calcValues = {};
 
 $(document).ready(function(){
   $("#field-valor-objeto").maskMoney();
@@ -40,13 +41,15 @@ $(document).ready(function(){
     btnCarro.show();
     labelValor.html("Qual o valor estimado desse carro?");
   });
+
   $('#btn-calc').click(function(){
-    var calcValues = get_values();
-    alert(calcValues);
+    calcValues = get_values();
+    set_modal_values(calcValues)
+    calcula(calcValues)
   });
 });
 
-function calcula(){
+function calcula(calcValues){
     var emprestimo = document.loandata.emprestimo.value;
     var vAutomovel = document.loandata.vAutomovel.value;
     var parcela = document.loandata.parcela.value * 1;
