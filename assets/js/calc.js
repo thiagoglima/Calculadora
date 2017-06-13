@@ -51,6 +51,7 @@ $(document).ready(function(){
 
 function calcula(calcValues){
    var emprestimo = calcValues['value'].replace(".", "");
+   var vAutomovel = calcValues['object_value'].replace(".", "");
   // emprestimo = emprestimo.replace(",", "");
    // emprestimo = emprestimo.Remove(nome.Length - 2);
    // emprestimo = emprestimo;
@@ -63,10 +64,11 @@ function calcula(calcValues){
     
     emprestimo = Number(emprestimo);
     var parcela =  Number(calcValues['parcel']);
-    var vAutomovel = Number(calcValues['object_value']);
+    var vAutomovel = Number(vAutomovel);
     var juros;
 
-    alert(typeof emprestimo);
+    alert(typeof vAutomovel);
+    alert(vAutomovel);
     alert(emprestimo);
 
     switch(parcela){
