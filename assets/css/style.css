@@ -84,3 +84,12 @@ html {
   top: 150px;
   left: 50px;
 }
+
+.modal-dialog {
+    margin: 0px auto;
+}
+
+.calc-result{
+  font-size: 18px;
+  font-weight: 500;
+}

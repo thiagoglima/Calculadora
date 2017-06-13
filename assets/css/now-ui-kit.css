@@ -2036,7 +2036,6 @@ body {
 .navbar .button-dropdown .navbar-toggler-bar:nth-child(2) {
   width: 17px; }
 .navbar.navbar-transparent {
-  background-color: transparent !important;
   box-shadow: none;
   color: #FFFFFF;
   padding-top: 20px; }
